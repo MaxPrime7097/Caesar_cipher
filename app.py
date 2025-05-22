@@ -22,4 +22,8 @@ def home():
         result = caesar_cipher(text,shift)
     return render_template('index.html', result=result)
 
-if __name__ == '_main_': app.run(debug=True)
+import os
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))  # Render te fournit une variable d'environnement PORT
+    app.run(host='0.0.0.0', port=port)        # '0.0.0.0' permet à l'app d'être accessible de l'extérieur
